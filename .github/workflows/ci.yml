@@ -18,5 +18,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Give permission to mvnw
+        working-directory: fincore
+        run: chmod +x mvnw
+
       - name: Build with Maven
-        run: mvn clean install
+        working-directory: fincore
+        run: ./mvnw clean install
