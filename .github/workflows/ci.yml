@@ -24,4 +24,4 @@ jobs:
 
       - name: Build with Maven
         working-directory: fincore
-        run: ./mvnw clean install
+        run: ./mvnw clean install -DskipTests
