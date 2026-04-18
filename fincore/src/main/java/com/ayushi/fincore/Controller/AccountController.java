@@ -1,7 +1,8 @@
 package com.ayushi.fincore.Controller;
 
-import com.ayushi.fincore.Dto.TransactionRequest;
-import com.ayushi.fincore.Dto.TransferRequest;
+import com.ayushi.fincore.dto.ApiResponse;
+import com.ayushi.fincore.dto.TransactionRequest;
+import com.ayushi.fincore.dto.TransferRequest;
 import com.ayushi.fincore.Model.Account;
 import com.ayushi.fincore.Model.Transaction;
 import com.ayushi.fincore.Service.AccountService;
@@ -50,18 +51,18 @@ public class AccountController {
     }
 
     @PostMapping("/transfer")
-    public String transfer(@RequestBody TransferRequest request,
-                           Authentication authentication) {
+    public ApiResponse<String> transfer(@RequestBody TransferRequest request,
+                                        Authentication authentication) {
 
-
-        return accountService.transfer(
+        String result = accountService.transfer(
                 request.getFromAccountId(),
                 request.getToAccountId(),
                 request.getAmount(),
                 authentication.getName(),
                 request.getIdempotencyKey()
         );
-
+//used generics to make response flexible for all w/o creating multiple responses
+        return new ApiResponse<>(result, null);
     }
 
 

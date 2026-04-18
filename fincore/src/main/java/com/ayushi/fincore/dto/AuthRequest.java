@@ -1,4 +1,4 @@
-package com.ayushi.fincore.Dto;
+package com.ayushi.fincore.dto;
 
 import lombok.Data;
 

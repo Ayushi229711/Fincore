@@ -1,7 +1,7 @@
 package com.ayushi.fincore.Controller;
 
-import com.ayushi.fincore.Dto.AuthRequest;
-import com.ayushi.fincore.Dto.RegisterRequest;
+import com.ayushi.fincore.dto.AuthRequest;
+import com.ayushi.fincore.dto.RegisterRequest;
 import com.ayushi.fincore.Model.User;
 import com.ayushi.fincore.Security.JwtUtil;
 import com.ayushi.fincore.Service.UserService;
