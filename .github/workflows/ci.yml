@@ -22,9 +22,12 @@ jobs:
         working-directory: fincore
         run: chmod +x mvnw
 
-      - name: Build & Test
+      - name: Build (Skip Tests)
         working-directory: fincore
         run: ./mvnw clean install -DskipTests
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
         run: docker build -t fincore-app ./fincore
