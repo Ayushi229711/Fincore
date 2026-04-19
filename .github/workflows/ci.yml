@@ -22,6 +22,9 @@ jobs:
         working-directory: fincore
         run: chmod +x mvnw
 
-      - name: Build with Maven
+      - name: Build & Test
         working-directory: fincore
-        run: ./mvnw clean install -DskipTests
+        run: ./mvnw clean install
+
+      - name: Build Docker image
+        run: docker build -t fincore-app ./fincore
